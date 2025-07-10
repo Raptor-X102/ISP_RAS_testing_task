@@ -126,7 +126,7 @@ SAST-инструменты парсят исходный код, строят �
 6. Ответ красиво выводится
 7. Если встретились ошибки - программа обрабатывает их и выводит сообщение.
 
-Примерный вывод работы скрипта
+Примерный вывод работы скрипта, тестируемые данные - [Find_TCP_data/llm_test_data](https://github.com/Raptor-X102/ISP_RAS_testing_task/tree/main/Find_TCP_data/llm_test_data), 2 файла из проекта uIP ([uip/unix](https://github.com/adamdunkels/uip/tree/master/unix))
 
 ![Script_response_1.png](Screenshots/Script_response_1.png)
 ![Script_response_2.png](Screenshots/Script_response_2.png)

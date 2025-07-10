@@ -131,3 +131,18 @@ SAST-инструменты парсят исходный код, строят �
 ![Script_response_1.png](Screenshots/Script_response_1.png)
 ![Script_response_2.png](Screenshots/Script_response_2.png)
 ![Script_response_3.png](Screenshots/Script_response_3.png)
+
+### Использование OpenRouter
+
+Из-за отсутствия GPU адекватно протестировать анализ всего проекта с github не представляется возможным. Для этого будем использовать OpenRouter - платформу, которая даёт доступ к разным моделям ИИ от разных провайдеров через единый API. Среди бесплатных я отобрал с наибольшей длиной контекста, потому что 1 проект - это очень много токенов (в некоторых, которые я собирал в рамках тестового задания, свыше миллиона). Сначала я попытался запуститься на [Google: Gemini 2.5 Pro Experimental](https://openrouter.ai/google/gemini-2.5-pro-exp-03-25) и [Google: Gemini 2.0 Flash Experimental (free)](https://openrouter.ai/google/gemini-2.0-flash-exp:free), но там было ограничение по токенам. Однако на [Cypher Alpha (free)](https://openrouter.ai/openrouter/cypher-alpha:free) получилось.
+Измененный под OpenRouter код в файле [Find_TCP_data/Search_w_Cypher_Alpha.py](https://github.com/Raptor-X102/ISP_RAS_testing_task/blob/main/Find_TCP_data/Search_w_Cypher_Alpha.py)
+
+Вывод для проекта [uIP](https://github.com/adamdunkels/uip)
+
+![Cypher_alpha_uip_1.png](Screenshots/Cypher_alpha_uip_1.png)
+![Cypher_alpha_uip_2.png](Screenshots/Cypher_alpha_uip_2.png)
+
+Вывод для проекта [libftp](https://github.com/lexus2k/libtftp)
+
+![Cypher_alpha_uip_1.png](Screenshots/Cypher_alpha_libftp_1.png)
+

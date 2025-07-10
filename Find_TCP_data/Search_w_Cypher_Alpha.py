@@ -137,8 +137,8 @@ def print_functions(functions: List[Dict]) -> None:
 if __name__ == "__main__":      # Жалкая пародия на C/C++, когда не делаешь main по дефолту
     import sys                  # Доступ к аргументам командной строки
 
-    if len(sys.argv) != 2:
-        print("Wrong input format. Must be: python3 this_script.py  <путь_к_директории>")
+    if len(sys.argv) != 3:
+        print("Wrong input format. Must be: python3 this_script.py  <путь_к_директории> <API_key>")
         sys.exit(1)
 
     project_dir = sys.argv[1]
@@ -152,7 +152,8 @@ if __name__ == "__main__":      # Жалкая пародия на C/C++, ког
         print("[-] No source files found in directory")
         sys.exit(1)
 
-    os.environ["OPENROUTER_API_KEY"] = "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"
+    print(sys.argv[2])
+    os.environ["OPENROUTER_API_KEY"] = sys.argv[2]
     model = ChatOpenAI(
             model="openrouter/cypher-alpha:free", 
             base_url="https://openrouter.ai/api/v1",

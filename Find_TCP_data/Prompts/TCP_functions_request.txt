@@ -1,0 +1,22 @@
+Hi! I am analyzing TCP protocol implementation. Your task is to list only the names of functions specific to this protocol. Examples of such functions are parser functions and handler functions.
+For each function found, return the following information:
+- The file name where it was found
+- The line number
+- The function name
+- Its type: parser, handler, validator, etc.
+Please output your response as a JSON list of objects in this format
+
+[
+  {{
+    "file": "tcp_parser.c",
+    "line": 42,
+    "function_name": "tcp_parse_header",
+    "type": "parser"
+  }}
+]
+
+Return ONLY the JSON object, without any other text before or after.
+Do not add explanations, markdown, or anything else.
+
+Code to analyze:
+{code}

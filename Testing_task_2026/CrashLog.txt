@@ -1,0 +1,126 @@
+Warning: Permanently added '[localhost]:23724' (ED25519) to the list of known hosts.
+2026/03/12 21:09:21 parsed 1 programs
+syzkaller login: [   59.951341] cgroup: Unknown subsys name 'net'
+[   59.992068] cgroup: Unknown subsys name 'cpuset'
+[   60.004708] cgroup: Unknown subsys name 'rlimit'
+[   60.005668] cgroup: Unknown subsys name 'memory'
+[   60.044710] kmemleak: Automatic memory scanning thread ended
+Setting up swapspace version 1, size = 122.1 MiB (127995904 bytes)
+no label, UUID=fcd4cfda-6a5e-46ca-9525-718b5cb78865
+[   73.304818] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[   74.178092] audit: type=1400 audit(1773349780.730:5): avc:  denied  { execmem } for  pid=372 comm="syz-executor" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   75.856289] bridge0: port 1(bridge_slave_0) entered blocking state
+[   75.857570] bridge0: port 1(bridge_slave_0) entered disabled state
+[   75.859197] bridge_slave_0: entered allmulticast mode
+[   75.861688] bridge_slave_0: entered promiscuous mode
+[   75.864651] bridge0: port 2(bridge_slave_1) entered blocking state
+[   75.865806] bridge0: port 2(bridge_slave_1) entered disabled state
+[   75.867548] bridge_slave_1: entered allmulticast mode
+[   75.869792] bridge_slave_1: entered promiscuous mode
+[   76.449495] bridge0: port 2(bridge_slave_1) entered blocking state
+[   76.450650] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   76.451942] bridge0: port 1(bridge_slave_0) entered blocking state
+[   76.453068] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   76.837785] bridge0: port 1(bridge_slave_0) entered disabled state
+[   76.841342] bridge0: port 2(bridge_slave_1) entered disabled state
+[   77.871818] bridge0: port 1(bridge_slave_0) entered blocking state
+[   77.872887] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   77.882150] bridge0: port 2(bridge_slave_1) entered blocking state
+[   77.883231] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   78.925974] veth0_vlan: entered promiscuous mode
+[   80.392592] bridge_slave_1: left allmulticast mode
+[   80.395924] bridge_slave_1: left promiscuous mode
+[   80.399192] bridge0: port 2(bridge_slave_1) entered disabled state
+[   80.406543] bridge_slave_0: left allmulticast mode
+[   80.409045] bridge_slave_0: left promiscuous mode
+[   80.409945] bridge0: port 1(bridge_slave_0) entered disabled state
+[   80.462417] veth0_vlan: left promiscuous mode
+[   81.049404] audit: type=1401 audit(1773349787.603:6): op=setxattr invalid_context="u:object_r:app_data_file:s0:c512,c768"
+[   81.344285] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   81.346823] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   81.398069] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   81.400144] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+2026/03/12 21:09:49 executed programs: 0
+[   92.383544] bridge0: port 1(bridge_slave_0) entered blocking state
+[   92.384741] bridge0: port 1(bridge_slave_0) entered disabled state
+[   92.386220] bridge_slave_0: entered allmulticast mode
+[   92.388925] bridge_slave_0: entered promiscuous mode
+[   92.391371] bridge0: port 2(bridge_slave_1) entered blocking state
+[   92.392445] bridge0: port 2(bridge_slave_1) entered disabled state
+[   92.393951] bridge_slave_1: entered allmulticast mode
+[   92.396427] bridge_slave_1: entered promiscuous mode
+[   92.969895] bridge0: port 2(bridge_slave_1) entered blocking state
+[   92.970963] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   92.972159] bridge0: port 1(bridge_slave_0) entered blocking state
+[   92.973188] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   93.349461] bridge0: port 1(bridge_slave_0) entered disabled state
+[   93.352563] bridge0: port 2(bridge_slave_1) entered disabled state
+[   94.377779] bridge0: port 1(bridge_slave_0) entered blocking state
+[   94.378860] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   94.386309] bridge0: port 2(bridge_slave_1) entered blocking state
+[   94.387375] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   95.396727] veth0_vlan: entered promiscuous mode
+[   96.813967] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   96.817084] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   96.866165] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   96.868746] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+2026/03/12 21:10:03 executed programs: 2
+[  106.863632] kmemleak: 1 new suspected memory leaks (see /sys/kernel/debug/kmemleak)
+[  112.260977] kmemleak: 1 new suspected memory leaks (see /sys/kernel/debug/kmemleak)
+BUG: memory leak
+unreferenced object 0xffff888114d79000 (size 1024):
+  comm "syz.1.17", pid 931, jiffies 4294763714
+  hex dump (first 32 bytes):
+    c0 18 52 07 81 88 ff ff 00 00 00 00 00 00 00 00  ..R.............
+    22 01 00 00 00 00 ad de 00 01 00 00 00 00 ad de  "...............
+  backtrace (crc ec61b4b7):
+    kmemleak_alloc+0x39/0x70
+    __kmalloc_cache_noprof+0x56b/0xc40
+    xfrm_policy_alloc+0xb3/0x4b0
+    xfrm_policy_construct+0x3b/0x510
+    xfrm_add_policy+0x470/0xa20
+    xfrm_user_rcv_msg+0x46d/0xe30
+    netlink_rcv_skb+0x17f/0x510
+    xfrm_netlink_rcv+0x8c/0xc0
+    netlink_unicast+0x776/0xcb0
+    netlink_sendmsg+0xacf/0x1140
+    sock_sendmsg_nosec+0x1fe/0x250
+    __sock_sendmsg+0x89/0xb0
+    ____sys_sendmsg+0x6fd/0x9e0
+    ___sys_sendmsg+0x140/0x200
+    __sys_sendmsg+0x180/0x2c0
+    __x64_sys_sendmsg+0x7f/0xc0
+
+BUG: memory leak
+unreferenced object 0xffff8881157e7000 (size 1024):
+  comm "syz.1.19", pid 933, jiffies 4294763759
+  hex dump (first 32 bytes):
+    c0 18 52 07 81 88 ff ff 00 00 00 00 00 00 00 00  ..R.............
+    22 01 00 00 00 00 ad de 00 01 00 00 00 00 ad de  "...............
+  backtrace (crc 572261ae):
+    kmemleak_alloc+0x39/0x70
+    __kmalloc_cache_noprof+0x56b/0xc40
+    xfrm_policy_alloc+0xb3/0x4b0
+    xfrm_policy_construct+0x3b/0x510
+    xfrm_add_policy+0x470/0xa20
+    xfrm_user_rcv_msg+0x46d/0xe30
+    netlink_rcv_skb+0x17f/0x510
+    xfrm_netlink_rcv+0x8c/0xc0
+    netlink_unicast+0x776/0xcb0
+    netlink_sendmsg+0xacf/0x1140
+    sock_sendmsg_nosec+0x1fe/0x250
+    __sock_sendmsg+0x89/0xb0
+    ____sys_sendmsg+0x6fd/0x9e0
+    ___sys_sendmsg+0x140/0x200
+    __sys_sendmsg+0x180/0x2c0
+    __x64_sys_sendmsg+0x7f/0xc0
+
+connection error: failed to recv *flatrpc.ExecutorMessageRawT: read tcp 127.0.0.1:34249->127.0.0.1:49536: read: connection reset by peer
+[  112.531625] bridge_slave_1: left allmulticast mode
+[  112.533059] bridge_slave_1: left promiscuous mode
+[  112.533909] bridge0: port 2(bridge_slave_1) entered disabled state
+[  112.538548] bridge_slave_0: left allmulticast mode
+[  112.540083] bridge_slave_0: left promiscuous mode
+[  112.540924] bridge0: port 1(bridge_slave_0) entered disabled state
+[  112.651815] veth0_vlan: left promiscuous mode
+

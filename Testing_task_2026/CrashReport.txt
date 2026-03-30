@@ -1,0 +1,69 @@
+2026/03/12 21:10:03 executed programs: 2
+BUG: memory leak
+unreferenced object 0xffff888114d79000 (size 1024):
+  comm "syz.1.17", pid 931, jiffies 4294763714
+  hex dump (first 32 bytes):
+    c0 18 52 07 81 88 ff ff 00 00 00 00 00 00 00 00  ..R.............
+    22 01 00 00 00 00 ad de 00 01 00 00 00 00 ad de  "...............
+  backtrace (crc ec61b4b7):
+    create_object mm/kmemleak.c:794 [inline]
+    kmemleak_alloc+0x39/0x70 mm/kmemleak.c:1098
+    kmemleak_alloc_recursive include/linux/kmemleak.h:44 [inline]
+    slab_post_alloc_hook mm/slub.c:4983 [inline]
+    slab_alloc_node mm/slub.c:5288 [inline]
+    __kmalloc_cache_noprof+0x56b/0xc40 mm/slub.c:5766
+    kmalloc_noprof include/linux/slab.h:957 [inline]
+    kzalloc_noprof include/linux/slab.h:1094 [inline]
+    xfrm_policy_alloc+0xb3/0x4b0 net/xfrm/xfrm_policy.c:432
+    xfrm_policy_construct+0x3b/0x510 net/xfrm/xfrm_user.c:2187
+    xfrm_add_policy+0x470/0xa20 net/xfrm/xfrm_user.c:2246
+    xfrm_user_rcv_msg+0x46d/0xe30 net/xfrm/xfrm_user.c:3507
+    netlink_rcv_skb+0x17f/0x510 net/netlink/af_netlink.c:2552
+    xfrm_netlink_rcv+0x8c/0xc0 net/xfrm/xfrm_user.c:3529
+    netlink_unicast_kernel net/netlink/af_netlink.c:1320 [inline]
+    netlink_unicast+0x776/0xcb0 net/netlink/af_netlink.c:1346
+    netlink_sendmsg+0xacf/0x1140 net/netlink/af_netlink.c:1896
+    sock_sendmsg_nosec+0x1fe/0x250 net/socket.c:727
+    __sock_sendmsg+0x89/0xb0 net/socket.c:742
+    ____sys_sendmsg+0x6fd/0x9e0 net/socket.c:2630
+    ___sys_sendmsg+0x140/0x200 net/socket.c:2684
+    __sys_sendmsg+0x180/0x2c0 net/socket.c:2716
+    __do_sys_sendmsg net/socket.c:2721 [inline]
+    __se_sys_sendmsg net/socket.c:2719 [inline]
+    __x64_sys_sendmsg+0x7f/0xc0 net/socket.c:2719
+
+BUG: memory leak
+unreferenced object 0xffff8881157e7000 (size 1024):
+  comm "syz.1.19", pid 933, jiffies 4294763759
+  hex dump (first 32 bytes):
+    c0 18 52 07 81 88 ff ff 00 00 00 00 00 00 00 00  ..R.............
+    22 01 00 00 00 00 ad de 00 01 00 00 00 00 ad de  "...............
+  backtrace (crc 572261ae):
+    create_object mm/kmemleak.c:794 [inline]
+    kmemleak_alloc+0x39/0x70 mm/kmemleak.c:1098
+    kmemleak_alloc_recursive include/linux/kmemleak.h:44 [inline]
+    slab_post_alloc_hook mm/slub.c:4983 [inline]
+    slab_alloc_node mm/slub.c:5288 [inline]
+    __kmalloc_cache_noprof+0x56b/0xc40 mm/slub.c:5766
+    kmalloc_noprof include/linux/slab.h:957 [inline]
+    kzalloc_noprof include/linux/slab.h:1094 [inline]
+    xfrm_policy_alloc+0xb3/0x4b0 net/xfrm/xfrm_policy.c:432
+    xfrm_policy_construct+0x3b/0x510 net/xfrm/xfrm_user.c:2187
+    xfrm_add_policy+0x470/0xa20 net/xfrm/xfrm_user.c:2246
+    xfrm_user_rcv_msg+0x46d/0xe30 net/xfrm/xfrm_user.c:3507
+    netlink_rcv_skb+0x17f/0x510 net/netlink/af_netlink.c:2552
+    xfrm_netlink_rcv+0x8c/0xc0 net/xfrm/xfrm_user.c:3529
+    netlink_unicast_kernel net/netlink/af_netlink.c:1320 [inline]
+    netlink_unicast+0x776/0xcb0 net/netlink/af_netlink.c:1346
+    netlink_sendmsg+0xacf/0x1140 net/netlink/af_netlink.c:1896
+    sock_sendmsg_nosec+0x1fe/0x250 net/socket.c:727
+    __sock_sendmsg+0x89/0xb0 net/socket.c:742
+    ____sys_sendmsg+0x6fd/0x9e0 net/socket.c:2630
+    ___sys_sendmsg+0x140/0x200 net/socket.c:2684
+    __sys_sendmsg+0x180/0x2c0 net/socket.c:2716
+    __do_sys_sendmsg net/socket.c:2721 [inline]
+    __se_sys_sendmsg net/socket.c:2719 [inline]
+    __x64_sys_sendmsg+0x7f/0xc0 net/socket.c:2719
+
+connection error: failed to recv *flatrpc.ExecutorMessageRawT: read tcp 127.0.0.1:34249->127.0.0.1:49536: read: connection reset by peer
+
